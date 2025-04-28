@@ -4,6 +4,7 @@ let currentCityName = document.querySelector(".city-name");
 let currentMaxTemp = document.querySelector(".max-temp");
 let currentMinTemp = document.querySelector(".min-temp");
 let currentDay = document.querySelector(".date");
+let otherDaysContainer = document.querySelector(".other-days-cont");
 let inputCity = "Nairobi";
 
 let day = new Date();
@@ -52,6 +53,7 @@ function getCityName() {
             if (cityInput.value) {
                 inputCity = cityInput.value;
                 displayCityInfo(inputCity);
+                displaOtherDays(inputCity);
                 cityInput.value = "";
             }
         }
@@ -110,15 +112,37 @@ function displayCityInfo(city) {
 }
 displayCityInfo();
 
-function createOtherDays(temp, icon, dayName, weatherDescription) {
+function createOtherDays(temp, icon, dayName) {
     return `
+		<div class="days">
 		<p class="day-temp">${temp}</p>
 		<img
 			class="day-icon"
 			src="imgs/clear-day.png"
 			alt="imgs/${icon}"
 		/>
-		<p>${weatherDescription}</p>
+
 		<h3 class="day-name">${dayName}</h3>
+		</div>
+		
 	`;
 }
+
+function displaOtherDays(city) {
+    otherDaysContainer.innerHTML = "";
+    let todayIndex = parseInt(day.getDay());
+    getCityInfo(city).then((data) => {
+        for (todayIndex; todayIndex <= 5; todayIndex++) {
+            let daysName = formatDate(data.days[todayIndex].datetime);
+            let temp = changeFarhenheitToCelsius(data.days[todayIndex].tempmax);
+            let icon = data.days[todayIndex].icon;
+            let weatherDescription = data.days[todayIndex].conditions;
+            otherDaysContainer.innerHTML += createOtherDays(
+                temp,
+                icon,
+                daysName
+            );
+        }
+    });
+}
+displaOtherDays(inputCity);
