@@ -85,8 +85,30 @@ body {
         font-size: 1.5rem;
         font-weight: 400;
     }
-    .min-max-temp {
-        display: grid;
-        gap: 1rem;
+}
+.min-max-temp {
+    display: grid;
+    gap: 1rem;
+}
+.other-days {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 90%;
+    .days {
+        position: relative;
+        .day-temp {
+            position: absolute;
+            top: -0.5rem;
+            right: -4px;
+            font-size: 1.5rem;
+        }
+        .day-name {
+            margin-left: 0.75rem;
+            margin-top: 0.5rem;
+        }
     }
 }

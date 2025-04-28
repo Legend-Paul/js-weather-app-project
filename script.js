@@ -36,6 +36,15 @@ let todayMonth = monthsOfYear[day.getMonth()];
 let todayDate = day.getDate();
 let todayYear = day.getFullYear();
 
+function formatDate(dateString) {
+    let date = new Date(dateString);
+    let dayName = daysOfWeek[date.getDay()];
+    return dayName;
+}
+
+let formattedDate = formatDate("2025-04-28");
+console.log(formattedDate); // Output: Monday, April 28, 2025
+
 function getCityName() {
     document.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
@@ -100,3 +109,16 @@ function displayCityInfo(city) {
         });
 }
 displayCityInfo();
+
+function createOtherDays(temp, icon, dayName, weatherDescription) {
+    return `
+		<p class="day-temp">${temp}</p>
+		<img
+			class="day-icon"
+			src="imgs/clear-day.png"
+			alt="imgs/${icon}"
+		/>
+		<p>${weatherDescription}</p>
+		<h3 class="day-name">${dayName}</h3>
+	`;
+}
