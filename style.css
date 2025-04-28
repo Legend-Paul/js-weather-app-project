@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    height: 100vh;
+    color: white;
+    place-items: center;
+    display: grid;
+    background-color: #05011b;
+    font-family: "Courier New", Courier, monospace;
+}
+.weather-cont {
+    position: relative;
+    width: 50rem;
+    height: 80%;
+    margin: auto;
+    background-image: url("continet.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    .search-cont {
+        width: 75%;
+        margin: auto;
+        input {
+            width: 80%;
+            margin: auto;
+            height: 2.5rem;
+            padding: 0 0.5rem;
+            background-color: #05011b;
+            border: none;
+            outline: none;
+            color: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease-in-out;
+            &:focus {
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+            }
+        }
+    }
+}
+
+.date-city-cont {
+    margin: 2rem 0;
+    .date {
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    .location {
+        margin-top: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        .city-name {
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        .bi {
+            font-size: 1.5rem;
+        }
+    }
+}
+.weather-info {
+    position: absolute;
+    right: 6rem;
+    top: 4rem;
+    .temp {
+        font-size: 5rem;
+        font-weight: 700;
+    }
+    .weather-desc {
+        font-size: 1.5rem;
+        font-weight: 400;
+    }
+}
+.min-max-temp {
+    display: flex;
+    gap: 1rem;
+}
