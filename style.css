@@ -67,10 +67,10 @@ body {
 }
 .weather-info {
     position: absolute;
-    right: 6rem;
+    right: 3rem;
     top: 4rem;
-    .temp {
-        font-size: 5rem;
+    .city-temp {
+        font-size: 3rem;
         font-weight: 700;
     }
     .weather-desc {
