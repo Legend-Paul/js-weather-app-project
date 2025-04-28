@@ -32,3 +32,12 @@ async function getCityInfo() {
         console.error("Error fetching data:", error);
     }
 }
+
+function changeFarhenheitToCelsius(fahrenheit) {
+    fahrenheit = parseFloat(fahrenheit);
+    if (isNaN(fahrenheit)) {
+        return null;
+    }
+    let celsius = (fahrenheit - 32) * (5 / 9);
+    return celsius.toFixed(2);
+}
