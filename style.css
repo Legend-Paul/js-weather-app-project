@@ -10,14 +10,13 @@ body {
     display: grid;
     background-color: #05011b;
     font-family: "Courier New", Courier, monospace;
-    display: grid;
-    place-items: center;
 }
 .weather-cont {
     position: relative;
     width: 70%;
     height: 500px;
     margin: 0 auto;
+    margin-top: 2rem;
     background-image: url("imgs/earth.jpg");
     background-repeat: no-repeat;
     background-size: cover;
