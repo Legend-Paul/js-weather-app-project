@@ -10,11 +10,13 @@ body {
     display: grid;
     background-color: #05011b;
     font-family: "Courier New", Courier, monospace;
+    display: grid;
+    place-items: center;
 }
 .weather-cont {
     position: relative;
     width: 70%;
-    height: 85%;
+    height: 500px;
     margin: 0 auto;
     background-image: url("imgs/earth.jpg");
     background-repeat: no-repeat;
@@ -121,10 +123,11 @@ body {
 @media screen and (max-width: 790px) {
     .weather-cont {
         width: 90%;
-
         position: relative;
         .search-cont {
             width: 90%;
+            margin: 0;
+            margin-bottom: 1rem;
         }
     }
     .weather-icon-cont {
@@ -147,6 +150,9 @@ body {
     }
 }
 @media screen and (max-width: 604px) {
+    .weather-cont {
+        height: 620px;
+    }
     .min-max-temp {
         top: 7rem;
         right: 2rem;
