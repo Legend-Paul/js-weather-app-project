@@ -16,7 +16,7 @@ body {
     width: 70%;
     height: 90%;
     margin: auto;
-    background-image: url("earth.jpg");
+    background-image: url("imgs/earth.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -114,7 +114,6 @@ body {
         }
         .day-name {
             margin-bottom: 0.75rem;
-            /* margin-top: -0.5rem; */
         }
     }
 }
