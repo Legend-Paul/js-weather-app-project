@@ -43,9 +43,6 @@ function formatDate(dateString) {
     return dayName;
 }
 
-let formattedDate = formatDate("2025-04-28");
-console.log(formattedDate); // Output: Monday, April 28, 2025
-
 function getCityName() {
     document.addEventListener("keypress", function (event) {
         if (event.key === "Enter") {
@@ -69,7 +66,8 @@ async function getCityInfo(city) {
         let data = await response.json();
         return data;
     } catch (error) {
-        console.error("Error fetching data:", error);
+        alert("City not found");
+        console.error("Error fetching city info:", error);
     }
 }
 
@@ -85,6 +83,7 @@ function changeFarhenheitToCelsius(fahrenheit) {
 function displayCityInfo(city) {
     getCityInfo(city)
         .then((data) => {
+            console.log(data);
             let cityName = data.resolvedAddress;
             let cityTemp = changeFarhenheitToCelsius(
                 data.currentConditions.temp
@@ -115,14 +114,14 @@ displayCityInfo();
 function createOtherDays(temp, icon, dayName) {
     return `
 		<div class="days">
-		<p class="day-temp">${temp}</p>
-		<img
-			class="day-icon"
-			src="imgs/clear-day.png"
-			alt="imgs/${icon}"
-		/>
+            <p class="day-temp">${temp}</p>
+            <img
+                class="day-icon"
+                src="imgs/clear-day.png"
+                alt="imgs/${icon}"
+            />
 
-		<h3 class="day-name">${dayName}</h3>
+            <h5 class="day-name">${dayName}</h>
 		</div>
 		
 	`;
@@ -130,13 +129,12 @@ function createOtherDays(temp, icon, dayName) {
 
 function displaOtherDays(city) {
     otherDaysContainer.innerHTML = "";
-    let todayIndex = parseInt(day.getDay());
     getCityInfo(city).then((data) => {
-        for (todayIndex; todayIndex <= 5; todayIndex++) {
-            let daysName = formatDate(data.days[todayIndex].datetime);
-            let temp = changeFarhenheitToCelsius(data.days[todayIndex].tempmax);
-            let icon = data.days[todayIndex].icon;
-            let weatherDescription = data.days[todayIndex].conditions;
+        for (let i = 1; i <= 5; i++) {
+            let daysName = formatDate(data.days[i].datetime);
+            let temp = changeFarhenheitToCelsius(data.days[i].tempmax);
+            let icon = data.days[i].icon;
+            console.log(daysName);
             otherDaysContainer.innerHTML += createOtherDays(
                 temp,
                 icon,

@@ -13,8 +13,8 @@ body {
 }
 .weather-cont {
     position: relative;
-    width: 50rem;
-    height: 80%;
+    width: 70%;
+    height: 90%;
     margin: auto;
     background-image: url("earth.jpg");
     background-repeat: no-repeat;
@@ -25,15 +25,17 @@ body {
     .search-cont {
         width: 75%;
         margin: auto;
+        margin-bottom: 1rem;
         input {
             width: 80%;
             margin: auto;
             height: 2.5rem;
             padding: 0 0.5rem;
             background-color: #05011b;
+            background-color: #fff;
+
             border: none;
             outline: none;
-            color: white;
             border-radius: 0.5rem;
             box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
             transition: all 0.3s ease-in-out;
@@ -43,7 +45,10 @@ body {
         }
     }
 }
-
+.today-weather-cont {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
 .date-city-cont {
     margin: 2rem 0;
     .date {
@@ -56,8 +61,6 @@ body {
         align-items: center;
         gap: 0.5rem;
         .city-name {
-            font-size: 1.5rem;
-            font-weight: 700;
             text-transform: uppercase;
         }
         .bi {
@@ -66,9 +69,6 @@ body {
     }
 }
 .weather-info {
-    position: absolute;
-    right: 3rem;
-    top: 4rem;
     .city-temp {
         font-size: 3rem;
         font-weight: 700;
@@ -87,6 +87,9 @@ body {
     }
 }
 .min-max-temp {
+    position: absolute;
+    top: 12rem;
+    right: calc(50% - 4rem);
     display: grid;
     gap: 1rem;
 }
@@ -94,21 +97,70 @@ body {
     position: absolute;
     bottom: 2rem;
     left: 2rem;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
+    padding-right: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
     width: 90%;
+    margin: auto;
+    place-items: center;
+
     .days {
         position: relative;
         .day-temp {
             position: absolute;
-            top: -0.5rem;
+            top: -0.75rem;
             right: -4px;
             font-size: 1rem;
         }
         .day-name {
-            margin-left: 0.75rem;
-            margin-top: 0.5rem;
+            margin-bottom: 0.75rem;
+            /* margin-top: -0.5rem; */
         }
+    }
+}
+
+@media screen and (max-width: 790px) {
+    .weather-cont {
+        width: 90%;
+
+        position: relative;
+        .search-cont {
+            width: 90%;
+        }
+    }
+    .weather-icon-cont {
+        width: 6rem !important;
+        height: 6rem !important;
+    }
+    .search-cont {
+        width: 90% !important;
+        background-color: blueviolet;
+        padding: 0;
+        input {
+            width: 100% !important;
+
+            background-color: #fff;
+        }
+    }
+    .other-days-cont {
+        bottom: 1rem;
+        left: 1rem;
+        padding-right: 0.25rem;
+    }
+}
+@media screen and (max-width: 604px) {
+    .min-max-temp {
+        top: 7rem;
+        right: 2rem;
+    }
+}
+@media screen and (max-width: 598px) {
+    .day-icon {
+        width: 3rem !important;
+    }
+    .day-temp {
+        font-size: 0.75rem !important;
+        top: 0.5rem !important;
+        right: -1.5rem !important;
     }
 }
