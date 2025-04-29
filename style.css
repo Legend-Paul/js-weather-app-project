@@ -159,7 +159,7 @@ body {
     }
     .day-temp {
         font-size: 0.75rem !important;
-        top: 0.5rem !important;
+        top: -0.15rem !important;
         right: -1.5rem !important;
     }
 }

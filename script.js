@@ -77,7 +77,7 @@ function changeFarhenheitToCelsius(fahrenheit) {
         return null;
     }
     let celsius = (fahrenheit - 32) * (5 / 9);
-    return celsius.toFixed(2);
+    return celsius.toFixed(1);
 }
 
 function displayCityInfo(city) {
@@ -114,7 +114,7 @@ displayCityInfo();
 function createOtherDays(temp, icon, dayName) {
     return `
 		<div class="days">
-            <p class="day-temp">${temp}</p>
+            <p class="day-temp">${temp}°C</p>
             <img
                 class="day-icon"
                 src="imgs/clear-day.png"
