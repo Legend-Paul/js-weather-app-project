@@ -134,7 +134,11 @@ function displaOtherDays(city) {
             let daysName = formatDate(data.days[i].datetime);
             let temp = changeFarhenheitToCelsius(data.days[i].tempmax);
             let icon = data.days[i].icon;
-            console.log(daysName);
+            console.log(window.screen.width);
+
+            if (window.screen.width <= 598) {
+                daysName = daysName.slice(0, 3);
+            }
             otherDaysContainer.innerHTML += createOtherDays(
                 temp,
                 icon,
